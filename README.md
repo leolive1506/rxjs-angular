@@ -72,6 +72,19 @@ Agrupa diveros outros operadores
 ### Tap
 Não modifica dados, apenas visualiza, como se fosse um especião (usado para debug)
 
+### Map
+- semelhante ao map js
+```ts
+buscar(valor: string): Observable<Item[]> {
+  const params = new HttpParams().append('q', valor)
+  return this.http.get<LivrosResultado>(this.API, { params }).pipe(
+    tap((resultado) => console.log('Fluxo do tap', resultado)),
+    map(resultado => resultado.items),
+    tap((resultado) => console.log('Fluxo após map', resultado)),
+  )
+}
+```
+
 # Arquitetura de componentes de apresentação e componentes inteligentes
 ### Componentes apresentação
 - mostrar informações e interagir com a pessoa usuária
