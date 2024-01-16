@@ -63,8 +63,7 @@ ngOnDestroy(): void {
   this.subscription.unsubscribe();
 }
 ```
-# Dicas gerais
-## Estrutura pastas
+# arquitetura de componentes de apresentação e componentes inteligentes
 ### Componentes apresentação
 - mostrar informações e interagir com a pessoa usuária
 - nao possui depencias e recebe informações de outros componentes
@@ -78,6 +77,9 @@ ngOnDestroy(): void {
 - componentes inteligentes / smart components
 - app/views
 
+# Dicas gerais
+- pegar tipagem com base num json -> [quicktype.io](https://quicktype.io/)
+
 # Referencai google
 https://developers.google.com/books/docs/v1/using?hl=pt-br
 
@@ -86,3 +88,6 @@ https://developers.google.com/books/docs/v1/using?hl=pt-br
 - Utilizar a arquitetura de componentes de apresentação e componentes inteligentes;
 - Lidar com a biblioteca RxJS;
 - Aplicar o padrão Observer.
+- Utilizar os métodos next, error e complete;
+- Desinscrever-se do observable através do unsubscribe;
+- Adequar a resposta da API para o formato necessário.
