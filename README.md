@@ -63,7 +63,16 @@ ngOnDestroy(): void {
   this.subscription.unsubscribe();
 }
 ```
-# arquitetura de componentes de apresentação e componentes inteligentes
+## Operadores RxJS
+- são funções que conseguem combinar difernentes tipos de observers para obter diferentes de respostas
+### Pipe
+Agrupa diveros outros operadores
+- como um cano por onde passa o fluxo de informações
+
+### Tap
+Não modifica dados, apenas visualiza, como se fosse um especião (usado para debug)
+
+# Arquitetura de componentes de apresentação e componentes inteligentes
 ### Componentes apresentação
 - mostrar informações e interagir com a pessoa usuária
 - nao possui depencias e recebe informações de outros componentes
