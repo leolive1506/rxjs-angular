@@ -114,6 +114,11 @@ São funções simples que recebem um valor e transformam esse valor
 <p class="resultado">{{ livro.publishedDate | date: 'dd/MM/yyyy' }}</p>
 ```
 
+## Criando pipes personalizados
+```sh
+ng g pipe pipes/autoria
+```
+
 
 # Dicas gerais
 - pegar tipagem com base num json -> [quicktype.io](https://quicktype.io/)
