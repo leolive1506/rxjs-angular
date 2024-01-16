@@ -49,5 +49,5 @@ Explorado conceitos bases do angular e RxJS, tais como:
 
 ## Links  
 - [Explicação de conceitos](https://github.com/leolive1506/rxjs-angular/blob/main/conceitos.md)
-- [Referencai google](https://developers.google.com/books/docs/v1/using?hl=pt-br)
+- [Referencia google](https://developers.google.com/books/docs/v1/using?hl=pt-br)
 
