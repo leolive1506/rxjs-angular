@@ -102,6 +102,24 @@ Semelhante filtro js
 
 ### debounceTime
 Adiciona intervalo de tempo para lidar novamente
+
+### catchError
+Capturar o erro que ocorreu, insere uma lógica adicional para mostrar uma mensagem de erro para a pessoa usuária e utilizando o throwError, é possível retornar um novo observable.
+  - O catchError não emite valores, ele captura o erro e o throwError retorna um novo observable que emite imediatamente o erro e termina seu ciclo de vida.
+- EMPTY
+  - callback de inscrição quando não quer fazer nada com o erro
+  - o observable é imediatamente completado
+    - encerrando ciclo de vida do observable
+```ts
+catchError(erro => { // não emite valores, apenas captura o erro
+  this.mensagemErro = 'Ops ocorreu um erro, Recarregue a aplicação'
+  return EMPTY // callback de inscrição quando não quer fazer nada com o erro
+  // return throwError(() => new Error(
+  //   this.mensagemErro = 'Ops ocorreu um erro, Recarregue a aplicação'
+  // ))
+}),
+```
+
 # Arquitetura de componentes de apresentação e componentes inteligentes
 ### Componentes apresentação
 - mostrar informações e interagir com a pessoa usuária

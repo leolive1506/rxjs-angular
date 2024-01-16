@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { FormControl } from '@angular/forms';
-import { catchError, debounceTime, filter, map, switchMap, tap, throwError } from 'rxjs';
+import { EMPTY, catchError, debounceTime, filter, map, switchMap, tap, throwError } from 'rxjs';
 import { Item } from 'src/app/models/interfaces';
 import { LivroVolumeInfo } from 'src/app/models/livro-volume-info';
 import { LivroService } from 'src/app/service/livro.service';
@@ -26,14 +26,13 @@ export class ListaLivrosComponent {
       switchMap(valorDigitado => this.service.buscar(valorDigitado)),
       map(items => this.livrosResultadoParaLivros(items)),
       catchError(erro => { // não emite valores, apenas captura o erro
-        return throwError(() => new Error(
-          this.mensagemErro = 'Ops ocorreu um erro, Recarregue a aplicação'
-        ))
+        this.mensagemErro = 'Ops ocorreu um erro, Recarregue a aplicação'
+        return EMPTY // callback de inscrição quando não quer fazer nada com o erro
+        // return throwError(() => new Error(
+        //   this.mensagemErro = 'Ops ocorreu um erro, Recarregue a aplicação'
+        // ))
       }),
       tap(() => console.log('Requisição ao servidor')),
-      // map(items => {
-      //   this.listaLivros = this.livrosResultadoParaLivros(items)
-      // })
     )
 
   livrosResultadoParaLivros(items: Item[]): LivroVolumeInfo[] {
