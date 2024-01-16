@@ -85,6 +85,18 @@ buscar(valor: string): Observable<Item[]> {
 }
 ```
 
+### switchMap
+Faz uma transformação, mas difernetemente do map, cancela as requisições anteriores e passa apenas o ultimo valor
+```tsx
+livrosEncontrados$ = this.campoBusca.valueChanges
+  .pipe(
+    switchMap(valorDigitado => this.service.buscar(valorDigitado)),
+    map(items => {
+      this.listaLivros = this.livrosResultadoParaLivros(items)
+    })
+  )
+```
+
 # Arquitetura de componentes de apresentação e componentes inteligentes
 ### Componentes apresentação
 - mostrar informações e interagir com a pessoa usuária
@@ -114,6 +126,16 @@ São funções simples que recebem um valor e transformam esse valor
 ```html
 <p class="resultado">{{ livro.publishedDate | date: 'dd/MM/yyyy' }}</p>
 ```
+### async
+- Se inscreve no observer, passa conteúdo para variavel local (listalivros), quando componente for encerrado faz unsubscribe automaticamente
+```html
+<!-- criar a variavel listaLivros localmente e atribui o resultado de livros encontrados a ela -->
+<div *ngIf="livrosEncontrados$ | async as listaLivros, else telaInicial">
+  <div *ngFor="let livro of listaLivros">
+    <app-livro [livro]="livro"></app-livro>
+  </div>
+</div>
+```
 
 ## Criando pipes personalizados
 ```sh
@@ -127,6 +149,11 @@ ng g pipe pipes/autoria
 ## Type-ahead (Digitação antecipada)
 - conforme for digitando os resultados vão sendo sugeridos dinamicamente
 
+## $ final variavel
+- convenção usar "$" no final da variavel quando ela representa um observable
+```ts
+livrosEncontrados$ = this.campo
+```
 # Referencai google
 https://developers.google.com/books/docs/v1/using?hl=pt-br
 

@@ -3,19 +3,19 @@
   <div class="busca">
     <input
       type="search"
-      [(ngModel)]="campoBusca"
-      (keyup)="buscarLivros()"
+      [formControl]="campoBusca"
     >
     <button>
       <img src="assets/imagens/icone-busca.png" alt="Lupa de cor roxa">
     </button>
   </div>
   <p>Busque por assunto, autoria, nome...</p>
-<div class="container-card" *ngIf="listaLivros?.length > 0, else telaInicial">
-  <div *ngFor="let livro of listaLivros">
-    <app-livro [livro]="livro"></app-livro>
+  <!-- async se inscreve no observer, passa conteúdo para variavel local (listalivros), quando componente for encerrado faz unsubscribe automaticamente-->
+  <div class="container-card" *ngIf="livrosEncontrados$ | async as listaLivros, else telaInicial">
+    <div *ngFor="let livro of listaLivros">
+      <app-livro [livro]="livro"></app-livro>
+    </div>
   </div>
-</div>
 <ng-template #telaInicial>
   <div class="imagens">
     <h1 class="titulo">Busque o livro <br> que quiser na <br> nossa estante!</h1>
