@@ -19,25 +19,13 @@ export class ListaLivrosComponent {
 
   constructor(private service: LivroService) { }
 
-  totalDeLivros$ = this.campoBusca.valueChanges
-  .pipe(
-    debounceTime(PAUSA),
-    filter(valorDigitado => valorDigitado.length >= 3),
-    tap(() => console.log('Fluxo inicial')),
-    switchMap(valorDigitado => this.service.buscar(valorDigitado)),
-    map(resultado => this.livrosResultado = resultado),
-    catchError(err => {
-      console.log(err)
-      return of()
-    })
-  )
-
   livrosEncontrados$ = this.campoBusca.valueChanges
     .pipe(
       debounceTime(PAUSA),
       filter(valorDigitado => valorDigitado.length >= 3),
       tap(() => console.log('Fluxo inicial')),
       switchMap(valorDigitado => this.service.buscar(valorDigitado)),
+      map(resultado => this.livrosResultado = resultado),
       map(resultado => resultado.items ?? []),
       map(items => this.livrosResultadoParaLivros(items)),
       catchError(erro => {
