@@ -99,8 +99,9 @@ buscar(valor: string): Observable<Item[]> {
 - componentes inteligentes / smart components
 - app/views
 
-# Pipes angular
+# [Pipes angular](https://angular.io/guide/pipes-overview)
 São funções simples que recebem um valor e transformam esse valor
+- [Lista de pipes](https://angular.io/api/common#pipes)
 - Essa transformação é apenas no nivel de apresentação (template)
 ## Slice
 - fatiar uma string
@@ -123,6 +124,9 @@ ng g pipe pipes/autoria
 # Dicas gerais
 - pegar tipagem com base num json -> [quicktype.io](https://quicktype.io/)
 
+## Type-ahead (Digitação antecipada)
+- conforme for digitando os resultados vão sendo sugeridos dinamicamente
+
 # Referencai google
 https://developers.google.com/books/docs/v1/using?hl=pt-br
 
@@ -134,4 +138,9 @@ https://developers.google.com/books/docs/v1/using?hl=pt-br
 - Utilizar os métodos next, error e complete;
 - Desinscrever-se do observable através do unsubscribe;
 - Adequar a resposta da API para o formato necessário.
-
+- Utilizar o operador pipe para agrupar múltiplos operadores;
+- Utilizar o operador tap para fazer debugging na aplicação;
+- Transformar o fluxo de dados com o operador map.
+- Transformar dados com pipes;
+- Passar parâmetros e utilizar pipes encadeados;
+- Criar um pipe customizado.
