@@ -99,6 +99,22 @@ buscar(valor: string): Observable<Item[]> {
 - componentes inteligentes / smart components
 - app/views
 
+# Pipes angular
+São funções simples que recebem um valor e transformam esse valor
+- Essa transformação é apenas no nivel de apresentação (template)
+## Slice
+- fatiar uma string
+```html
+<!-- slice(aPartirOnde, AteOnde) }}</p> -->
+<p class="resultado">{{ livro.publisher | slice: 0:20 }}</p>
+```
+## Date
+- formar uma data
+```html
+<p class="resultado">{{ livro.publishedDate | date: 'dd/MM/yyyy' }}</p>
+```
+
+
 # Dicas gerais
 - pegar tipagem com base num json -> [quicktype.io](https://quicktype.io/)
 
@@ -113,3 +129,4 @@ https://developers.google.com/books/docs/v1/using?hl=pt-br
 - Utilizar os métodos next, error e complete;
 - Desinscrever-se do observable através do unsubscribe;
 - Adequar a resposta da API para o formato necessário.
+
