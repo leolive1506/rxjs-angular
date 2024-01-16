@@ -47,6 +47,22 @@ this.service.buscar(this.campoBusca).subscribe({
 })
 ```
 
+## Unsubscribe
+- libera recursos e evita vazamento de memória
+- ao realizar, retorna uma assinatura do tipo Subscription
+```tsx
+buscarLivros() {
+  this.subscription = this.service.buscar(this.campoBusca).subscribe({
+    next: retornoApi => console.log(retornoApi),
+    error: error   => console.log(error),
+    complete: () => console.log('observer completado')
+  })
+}
+
+ngOnDestroy(): void {
+  this.subscription.unsubscribe();
+}
+```
 # Dicas gerais
 ## Estrutura pastas
 ### Componentes apresentação
