@@ -31,10 +31,6 @@ export interface VolumeInfo {
 export interface ImageLinks {
   smallThumbnail: string;
   thumbnail: ImageLinks;
-  small: string;
-  medium: string;
-  large: string;
-  extraLarge: string;
 }
 
 export interface Item {
