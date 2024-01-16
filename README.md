@@ -97,6 +97,9 @@ livrosEncontrados$ = this.campoBusca.valueChanges
   )
 ```
 
+### filter
+Semelhante filtro js
+
 # Arquitetura de componentes de apresentação e componentes inteligentes
 ### Componentes apresentação
 - mostrar informações e interagir com a pessoa usuária
