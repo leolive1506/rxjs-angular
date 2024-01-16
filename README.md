@@ -100,6 +100,8 @@ livrosEncontrados$ = this.campoBusca.valueChanges
 ### filter
 Semelhante filtro js
 
+### debounceTime
+Adiciona intervalo de tempo para lidar novamente
 # Arquitetura de componentes de apresentação e componentes inteligentes
 ### Componentes apresentação
 - mostrar informações e interagir com a pessoa usuária
@@ -174,3 +176,6 @@ https://developers.google.com/books/docs/v1/using?hl=pt-br
 - Transformar dados com pipes;
 - Passar parâmetros e utilizar pipes encadeados;
 - Criar um pipe customizado.
+- Desenvolver uma busca dinâmica;
+- Utilizar o pipe async;
+- Encadear os operadores switchMap, filter e debounceTime para otimizar a performance da aplicação.
